@@ -1,0 +1,48 @@
+version: 0.2
+phases:
+      
+  install:
+    commands:
+      #- pip install --upgrade awscli aws-sam-cli
+      - pwd
+  pre_build:
+    commands:
+      - pwd
+      - git branch
+      - git checkout main
+      - git branch
+      - git rev-parse --short HEAD
+      - git show --pretty=format:%b --numstat HEAD
+      - git diff-tree HEAD
+      - git diff-tree --name-only --no-commit-id HEAD
+     # - PATH_GIT=$(git diff-tree --name-only --no-commit-id HEAD)
+     # - BUCKET_NAME=$PATH_GIT
+#      - |
+#        then 
+#          echo "bucket $BUCKET_NAME already exists"
+#        else
+#          echo "Create s3 bucket"
+#          aws s3 mb s3://$BUCKET_NAME --region  ap-southeast-1
+#        fi
+  build:
+    commands:
+      - 
+      - cd $PATH_GIT
+      - pwd
+      # Sam build
+      #- sam build
+      # Package SAM template
+      #- sam package  --output-template-file packaged.yaml --s3-bucket 01lambda
+      #- sam package --template-file template.yaml --output-template-file packaged.yaml --s3-bucket $BUCKET_NAME
+      # Deploy packaged SAM template
+      #- sam deploy --template-file packaged.yaml --stack-name lambda-01-hello-world --capabilities CAPABILITY_IAM --region ap-southeast-1
+    
+cache:
+  paths:
+    - '/root/.m2/**/*'
+    
+artifacts:
+  type: zip
+  file:
+    - packaged.yaml
+  
