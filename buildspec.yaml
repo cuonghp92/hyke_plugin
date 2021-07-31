@@ -1,4 +1,8 @@
 version: 0.2
+
+env:
+  variables:
+    BUCKET_NAME: lambda-01
 phases:
       
   install:
@@ -7,14 +11,10 @@ phases:
       - pwd
   pre_build:
     commands:
-      - pwd
-      - git branch
-      - git checkout main
-      - git branch
+      - cd lambda-01
       - git rev-parse --short HEAD
-      - git show --pretty=format:%b --numstat HEAD
-      - git diff-tree HEAD
-      - git diff-tree --name-only --no-commit-id HEAD
+     # - git show --pretty=format:%b --numstat HEAD
+       - git diff-tree --name-only --no-commit-id HEAD
      # - PATH_GIT=$(git diff-tree --name-only --no-commit-id HEAD)
      # - BUCKET_NAME=$PATH_GIT
 #      - |
@@ -26,14 +26,12 @@ phases:
 #        fi
   build:
     commands:
-      - 
-      - cd $PATH_GIT
-      - pwd
+  
       # Sam build
       #- sam build
       # Package SAM template
       #- sam package  --output-template-file packaged.yaml --s3-bucket 01lambda
-      #- sam package --template-file template.yaml --output-template-file packaged.yaml --s3-bucket $BUCKET_NAME
+      - sam package --template-file template.yaml --output-template-file packaged.yaml --s3-bucket $BUCKET_NAME
       # Deploy packaged SAM template
       #- sam deploy --template-file packaged.yaml --stack-name lambda-01-hello-world --capabilities CAPABILITY_IAM --region ap-southeast-1
     
