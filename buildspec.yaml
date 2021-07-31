@@ -3,6 +3,7 @@ version: 0.2
 env:
   variables:
     BUCKET_NAME: lambda-01
+
 phases:
       
   install:
@@ -29,7 +30,7 @@ phases:
   
       # Sam build
       #- sam build
-      # Package SAM template
+       - echo Package SAM template
       #- sam package  --output-template-file packaged.yaml --s3-bucket 01lambda
       - sam package --template-file template.yaml --output-template-file packaged.yaml --s3-bucket $BUCKET_NAME
       # Deploy packaged SAM template
