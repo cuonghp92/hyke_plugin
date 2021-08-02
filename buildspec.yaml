@@ -13,6 +13,7 @@ phases:
   pre_build:
     commands:
       - cd lambda-01
+      - pwd
       - git rev-parse --short HEAD
      # - git show --pretty=format:%b --numstat HEAD
       - git diff-tree --name-only --no-commit-id HEAD
