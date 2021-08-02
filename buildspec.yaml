@@ -2,7 +2,7 @@ version: 0.2
 
 env:
   variables:
-    BUCKET_NAME: lambda-01-tokyo
+    BUCKET_NAME: lambda-01
 
 phases:
       
@@ -16,15 +16,16 @@ phases:
       - git rev-parse --short HEAD
      # - git show --pretty=format:%b --numstat HEAD
       - git diff-tree --name-only --no-commit-id HEAD
+      - aws s3 mb s3://lambda-01 --region  ap-southeast-1
      # - PATH_GIT=$(git diff-tree --name-only --no-commit-id HEAD)
      # - BUCKET_NAME=$PATH_GIT
-      - |
-        then 
-          echo "bucket $BUCKET_NAME already exists"
-        else
-          echo "Create s3 bucket"
-          aws s3 mb s3://$BUCKET_NAME --region  ap-northeast-1
-        fi
+#      - |
+#        then 
+#          echo "bucket $BUCKET_NAME already exists"
+#        else
+#          echo "Create s3 bucket"
+#          aws s3 mb s3://$BUCKET_NAME --region  ap-southeast-1
+#        fi
   build:
     commands:
   
