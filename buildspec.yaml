@@ -15,7 +15,7 @@ phases:
       - cd lambda-01
       - git rev-parse --short HEAD
      # - git show --pretty=format:%b --numstat HEAD
-       - git diff-tree --name-only --no-commit-id HEAD
+      - git diff-tree --name-only --no-commit-id HEAD
      # - PATH_GIT=$(git diff-tree --name-only --no-commit-id HEAD)
      # - BUCKET_NAME=$PATH_GIT
 #      - |
