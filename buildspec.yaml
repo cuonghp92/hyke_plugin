@@ -2,13 +2,13 @@ version: 0.2
 
 env:
   variables:
-    BUCKET_NAME: lambda-01
+    BUCKET_NAME: lambda011
 
 phases:
       
   install:
     commands:
-      #- pip install --upgrade awscli aws-sam-cli
+      - pip install --upgrade awscli aws-sam-cli
       - pwd
   pre_build:
     commands:
@@ -16,7 +16,6 @@ phases:
       - git rev-parse --short HEAD
      # - git show --pretty=format:%b --numstat HEAD
       - git diff-tree --name-only --no-commit-id HEAD
-      - aws s3 mb s3://lambda-01 --region  ap-southeast-1
      # - PATH_GIT=$(git diff-tree --name-only --no-commit-id HEAD)
      # - BUCKET_NAME=$PATH_GIT
 #      - |
@@ -33,7 +32,7 @@ phases:
       #- sam build
       - echo Package SAM template
       #- sam package  --output-template-file packaged.yaml --s3-bucket 01lambda
-      - sam package --template-file template.yaml --output-template-file packaged.yaml --s3-bucket $BUCKET_NAME
+      - sam package --template-file template.yaml --output-template-file packaged.yaml --s3-bucket lambda011
       # Deploy packaged SAM template
       #- sam deploy --template-file packaged.yaml --stack-name lambda-01-hello-world --capabilities CAPABILITY_IAM --region ap-southeast-1
     
