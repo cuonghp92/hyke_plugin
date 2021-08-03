@@ -43,6 +43,6 @@ cache:
     
 artifacts:
   type: zip
-  file:
+  files:
     - packaged.yaml
   
