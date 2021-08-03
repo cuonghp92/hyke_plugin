@@ -1,0 +1,19 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  SAM Template for Nested application resources
+Resources:
+    Auth:
+      Type: AWS::Serverless::Application
+      Properties:
+        Location: auth.yaml
+    Lambda01:
+      Type: AWS::Serverless::Application
+      Properties:
+        Location: ./lambda-01/template.yaml
+       
+    Lambda02:
+      Type: AWS::Serverless::Application
+      Properties:
+        Location: ./lambda-02/template.yaml
+     
