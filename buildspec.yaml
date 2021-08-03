@@ -34,6 +34,7 @@ phases:
       - echo Package SAM template
       #- sam package  --output-template-file packaged.yaml --s3-bucket 01lambda
       - sam package --template-file template.yaml --output-template-file packaged.yaml --s3-bucket 01lambda
+      - sam package --template-file template.yaml --output-template-file packaged.yaml --s3-bucket 02lambda
       # Deploy packaged SAM template
       #- sam deploy --template-file packaged.yaml --stack-name lambda-01-hello-world --capabilities CAPABILITY_IAM --region ap-southeast-1
     
@@ -45,4 +46,4 @@ artifacts:
   type: zip
   files:
     - lambda-01/packaged.yaml
-  
+    - lambda-02/packaged.yaml
