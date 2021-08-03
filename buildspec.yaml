@@ -44,5 +44,5 @@ cache:
 artifacts:
   type: zip
   files:
-    - packaged.yaml
+    - lambda-01/packaged.yaml
   
