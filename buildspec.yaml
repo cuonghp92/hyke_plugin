@@ -10,10 +10,10 @@ phases:
     commands:
       - pip install --upgrade awscli aws-sam-cli
       - pwd
-  pre_build:
-    commands:
-      - cd lambda-01
-      - pwd
+  # pre_build:
+  #   commands:
+  #     - cd lambda-01
+  #     - pwd
       # - git rev-parse --short HEAD
       # - git show --pretty=format:%b --numstat HEAD
       # - git diff-tree --name-only --no-commit-id HEAD
@@ -33,8 +33,10 @@ phases:
       #- sam build
       - echo Package SAM template
       #- sam package  --output-template-file packaged.yaml --s3-bucket 01lambda
-      - sam package --template-file template.yaml --output-template-file packaged.yaml --s3-bucket 01lambda
-      - sam package --template-file template.yaml --output-template-file packaged.yaml --s3-bucket 02lambda
+      - echo Package Lambda01..
+      - sam package --template-file lambda-01/template.yaml --output-template-file lambda-01/packaged.yaml --s3-bucket 01lambda
+      - echo Package Lambda02..
+      - sam package --template-file lambda-02/template.yaml --output-template-file lambda-02/packaged.yaml --s3-bucket 02lambda
       # Deploy packaged SAM template
       #- sam deploy --template-file packaged.yaml --stack-name lambda-01-hello-world --capabilities CAPABILITY_IAM --region ap-southeast-1
     
