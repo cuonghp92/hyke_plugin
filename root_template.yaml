@@ -3,16 +3,13 @@ Transform: AWS::Serverless-2016-10-31
 Description: >
   SAM Template for Nested application resources
 Resources:
-    Auth:
-      Type: AWS::Serverless::Application
-      Properties:
-        Location: auth.yaml
-    Lambda01:
+   
+    rootlambda01:
       Type: AWS::Serverless::Application
       Properties:
         Location: ./lambda-01/template.yaml
        
-    Lambda02:
+    rootlambda02:
       Type: AWS::Serverless::Application
       Properties:
         Location: ./lambda-02/template.yaml

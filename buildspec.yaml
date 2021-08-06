@@ -8,8 +8,8 @@ phases:
       
   install:
     commands:
-      - pip install --upgrade awscli aws-sam-cli
-      - pwd
+      # - pip install --upgrade awscli aws-sam-cli
+      # - pwd
   # pre_build:
   #   commands:
   #     - cd lambda-01
@@ -37,7 +37,7 @@ phases:
       - sam package --template-file lambda-02/template.yaml --output-template-file lambda-02/packaged.yaml --s3-bucket 02lambda
        # - sam package --template-file root_template.yaml --output-template-file root_packaged.yaml --s3-bucket lambdaroot
       # Deploy packaged SAM template
-      #- sam deploy --template-file packaged.yaml --stack-name lambda-01-hello-world --capabilities CAPABILITY_IAM --region ap-southeast-1
+      #- sam deploy --template-file packaged.yaml --stack-name lambda-01-hello-world --region ap-southeast-1
        
 cache:
   paths:
