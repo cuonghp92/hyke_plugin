@@ -8,9 +8,13 @@ Resources:
       Type: AWS::Serverless::Application
       Properties:
         Location: ./lambda-01/template.yaml
-       
+        Tags:
+        - Key: Name
+          Value: rootlambda01
     rootlambda02:
       Type: AWS::Serverless::Application
       Properties:
         Location: ./lambda-02/template.yaml
-     
+        Tags:
+          - Key: Name
+            Value: rootlambda02
