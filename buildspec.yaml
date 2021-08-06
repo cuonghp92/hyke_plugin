@@ -32,10 +32,10 @@ phases:
       # Sam build
       # - echo Package SAM template
       # - echo Package Lambda01..
-      - sam package --template-file lambda-01/template.yaml --output-template-file lambda-01/packaged.yaml --s3-bucket 01lambda
+      #- sam package --template-file lambda-01/template.yaml --output-template-file lambda-01/packaged.yaml --s3-bucket 01lambda
       # - echo Package Lambda02..
-      - sam package --template-file lambda-02/template.yaml --output-template-file lambda-02/packaged.yaml --s3-bucket 02lambda
-       # - sam package --template-file root_template.yaml --output-template-file root_packaged.yaml --s3-bucket lambdaroot
+      #- sam package --template-file lambda-02/template.yaml --output-template-file lambda-02/packaged.yaml --s3-bucket 02lambda
+      - sam package --template-file root_template.yaml --output-template-file root_packaged.yaml --s3-bucket lambdaroot
       # Deploy packaged SAM template
       #- sam deploy --template-file packaged.yaml --stack-name lambda-01-hello-world --region ap-southeast-1
        
