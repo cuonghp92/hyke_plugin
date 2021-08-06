@@ -48,4 +48,4 @@ artifacts:
   files:
     #  - lambda-01/packaged.yaml
     #  - lambda-02/packaged.yaml
-     -  root_packaged.yaml
+    -  root_packaged.yaml
