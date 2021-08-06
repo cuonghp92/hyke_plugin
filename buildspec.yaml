@@ -46,6 +46,6 @@ cache:
 artifacts:
   type: zip
   files:
-     - lambda-01/packaged.yaml
-     - lambda-02/packaged.yaml
-   # -  root_packaged.yaml
+    #  - lambda-01/packaged.yaml
+    #  - lambda-02/packaged.yaml
+     -  root_packaged.yaml
