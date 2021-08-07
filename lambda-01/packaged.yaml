@@ -18,18 +18,18 @@ Resources:
   HelloWorldFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: s3://01lambda/869ce3ec68cf6dfd5368058576c6ad03
+      CodeUri: s3://01lambda/e2fcca008769d203bd0607c98d2d9a61
       Handler: app.lambdaHandler
       Runtime: nodejs12.x
       VpcConfig:
         SecurityGroupIds:
         - Fn::ImportValue:
-            Fn::Sub: hype-plugin:LambdaSG
+            Fn::Sub: ${VPCStack}:LambdaSG
         SubnetIds:
         - Fn::ImportValue:
-            Fn::Sub: hype-plugin:PublicSubnetAZa
+            Fn::Sub: hype-plugin-PrivateSubnetAZa
         - Fn::ImportValue:
-            Fn::Sub: hype-plugin:PublicSubnetAZb
+            Fn::Sub: hype-plugin:PrivateSubnetAZb
       Events:
         Lambda01:
           Type: Api

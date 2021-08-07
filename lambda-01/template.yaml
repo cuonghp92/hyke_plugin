@@ -25,15 +25,20 @@ Resources:
       Handler: app.lambdaHandler
       Runtime: nodejs12.x
       VpcConfig:
-        SecurityGroupIds:
-          - Fn::ImportValue:
-            !Sub 'hype-plugin:LambdaSG'
-        SubnetIds:
-          - Fn::ImportValue: 
-            !Sub 'hype-plugin-PrivateSubnetAZa'   
-          - Fn::ImportValue: 
-            !Sub 'hype-plugin:PrivateSubnetAZb' 
         
+        SecurityGroupIds:
+          # - sg-05fb85fa2c511bc35
+          - Fn::ImportValue:
+              !Sub '${VPCStack}:LambdaSG'
+        SubnetIds:
+          # - !ImportValue
+          #   'Fn::Sub': '${VPCStack}:PublicSubnetAZa'
+          - Fn::ImportValue: 
+              !Sub 'hype-plugin-PrivateSubnetAZa'   
+          - Fn::ImportValue: 
+              !Sub 'hype-plugin:PrivateSubnetAZb' 
+          # - subnet-0206cecb022d6284a
+          # - subnet-002f87af0a9834fdd
           
       
       Events:
