@@ -24,15 +24,16 @@ Resources:
       CodeUri: hello-world/
       Handler: app.lambdaHandler
       Runtime: nodejs12.x
-      
-      
       VpcConfig:
+        
         SecurityGroupIds:
-          - !ImportValue 'Fn::Sub': 'hype-plugin:LambdaSG'
+          - sg-05fb85fa2c511bc35
           
         SubnetIds:
-          - !ImportValue 'Fn::Sub': 'hype-plugin:PublicSubnetAZa'
-          - !ImportValue 'Fn::Sub': 'hype-plugin:PublicSubnetAZb'
+            # - !ImportValue 'Fn::Sub': 'hype-plugin:PublicSubnetAZa'
+            # - !ImportValue 'Fn::Sub': 'hype-plugin:PublicSubnetAZb'
+          - subnet-0206cecb022d6284a
+          - subnet-002f87af0a9834fdd
           
       
       Events:
