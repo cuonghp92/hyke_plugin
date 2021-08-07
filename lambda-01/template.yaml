@@ -29,14 +29,14 @@ Resources:
         SecurityGroupIds:
           # - sg-05fb85fa2c511bc35
           - Fn::ImportValue:
-              !Sub '${VPCStack}:LambdaSG'
+              !Sub 'hype-plugin:LambdaSG'
         SubnetIds:
           # - !ImportValue
           #   'Fn::Sub': '${VPCStack}:PublicSubnetAZa'
           - Fn::ImportValue: 
-              !Sub '${VPCStack}:PublicSubnetAZa'   
+              !Sub 'hype-plugin:PublicSubnetAZa'   
           - Fn::ImportValue: 
-              !Sub '${VPCStack}:PublicSubnetAZb' 
+              !Sub 'hype-plugin:PublicSubnetAZb' 
           # - subnet-0206cecb022d6284a
           # - subnet-002f87af0a9834fdd
           
