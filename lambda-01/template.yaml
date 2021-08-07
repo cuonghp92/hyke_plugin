@@ -5,11 +5,11 @@ Description: >
 
   Sample SAM Template for lambda_01
 
-# Parameters:  
-#   VPCstack:
-#     Description: Config VPC 
-#     Type: String
-#     Default:  'hype-plugin'
+Parameters:  
+  VPCStack:
+    Description: Config VPC 
+    Type: String
+    Default:  'hype-plugin'
 #More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
 Globals:
   Function:
@@ -27,13 +27,16 @@ Resources:
       VpcConfig:
         
         SecurityGroupIds:
-          - sg-05fb85fa2c511bc35
-          
+          # - sg-05fb85fa2c511bc35
+          - !ImportValue 
+            'Fn::Sub': '${VPCStack}:LambdaSG'
         SubnetIds:
-            # - !ImportValue 'Fn::Sub': 'hype-plugin:PublicSubnetAZa'
-            # - !ImportValue 'Fn::Sub': 'hype-plugin:PublicSubnetAZb'
-          - subnet-0206cecb022d6284a
-          - subnet-002f87af0a9834fdd
+          - !ImportValue 
+            'Fn::Sub': '${VPCStack}:PublicSubnetAZa'
+          - !ImportValue 
+            'Fn::Sub': '${VPCStack}:PublicSubnetAZb' 
+          # - subnet-0206cecb022d6284a
+          # - subnet-002f87af0a9834fdd
           
       
       Events:
