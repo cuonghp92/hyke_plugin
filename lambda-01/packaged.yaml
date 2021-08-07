@@ -24,12 +24,12 @@ Resources:
       VpcConfig:
         SecurityGroupIds:
         - Fn::ImportValue:
-            Fn::Sub: ${VPCStack}:LambdaSG
+            Fn::Sub: hype-plugin:LambdaSG
         SubnetIds:
         - Fn::ImportValue:
-            Fn::Sub: ${VPCStack}:PublicSubnetAZa
+            Fn::Sub: hype-plugin:PublicSubnetAZa
         - Fn::ImportValue:
-            Fn::Sub: ${VPCStack}:PublicSubnetAZb
+            Fn::Sub: hype-plugin:PublicSubnetAZb
       Events:
         Lambda01:
           Type: Api
