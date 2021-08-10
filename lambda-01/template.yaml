@@ -10,7 +10,7 @@ Parameters:
     Description: Config VPC 
     Type: String
     Default:  'hype-plugin'
-#More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+
 Globals:
   Function:
     MemorySize: 128
@@ -19,20 +19,17 @@ Globals:
 Resources:
   
   HelloWorldFunction:
-    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Type: AWS::Serverless::Function 
     Properties:
       CodeUri: hello-world/
       Handler: app.lambdaHandler
       Runtime: nodejs12.x
-      VpcConfig:
-        
+      Tracing: Active
+      VpcConfig:  
         SecurityGroupIds:
-          # - sg-05fb85fa2c511bc35
           - Fn::ImportValue:
               !Sub '${VPCStack}:LambdaSG'
         SubnetIds:
-          # - !ImportValue
-          #   'Fn::Sub': '${VPCStack}:PublicSubnetAZa'
           - Fn::ImportValue: 
               !Sub '${VPCStack}:PublicSubnetAZa'   
           - Fn::ImportValue: 

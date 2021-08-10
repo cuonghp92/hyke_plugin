@@ -1,0 +1,10 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: 'SAM Template for Nested application resources
+
+  '
+Resources:
+  roottemplate:
+    Type: AWS::Serverless::Application
+    Properties:
+      Location: https://s3.ap-southeast-1.amazonaws.com/lambdaroot/8e56a5a316525fa132b47e1712f05724.template

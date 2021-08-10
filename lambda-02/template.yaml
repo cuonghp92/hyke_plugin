@@ -23,7 +23,6 @@ Resources:
       Handler: app.lambdaHandler
       Runtime: nodejs12.x
       VpcConfig:
-        
         SecurityGroupIds:
           - Fn::ImportValue:
               !Sub '${VPCStack}:LambdaSG'
