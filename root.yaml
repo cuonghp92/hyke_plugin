@@ -7,7 +7,4 @@ Resources:
     roottemplate:
       Type: AWS::Serverless::Application
       Properties:
-        Location: root/root_template.yaml
-        Tags: 
-          - Key: "Name"
-            Value: "root-tempate"      
+        Location: root/root_template.yaml    
