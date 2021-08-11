@@ -7,4 +7,4 @@ Resources:
   roottemplate:
     Type: AWS::Serverless::Application
     Properties:
-      Location: https://s3.ap-southeast-1.amazonaws.com/lambdaroot/8e56a5a316525fa132b47e1712f05724.template
+      Location: https://s3.ap-northeast-2.amazonaws.com/lambdaroot/0833b97f198f36f37e4b0c7ac98d86e8.template
